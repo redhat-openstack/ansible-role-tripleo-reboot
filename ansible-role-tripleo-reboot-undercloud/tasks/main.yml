@@ -1,2 +1,5 @@
 ---
-# tasks file for ansible-role-tripleo-reboot-undercloud
+# Reboot undercloud task
+
+- include: reboot-undercloud.yml
+  when: "{{ step_reboot_undercloud|default(false)|bool }}"
