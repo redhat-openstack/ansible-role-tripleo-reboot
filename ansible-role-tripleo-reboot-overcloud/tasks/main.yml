@@ -1,2 +1,8 @@
 ---
-# tasks file for ansible-role-tripleo-reboot-overcloud
+# Reboot overcloud task
+
+- include: reboot-overcloud-controller.yml
+  when: "{{ step_reboot_overcloud_controller|default(false)|bool }}"
+
+- include: reboot-overcloud-compute.yml
+  when: "{{ step_reboot_overcloud_compute|default(false)|bool }}"
