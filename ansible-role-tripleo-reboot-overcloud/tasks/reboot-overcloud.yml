@@ -1,0 +1,9 @@
+---
+- name: Install openstack-utils if not available
+  become: yes
+  yum: name=openstack-utils state=present
+
+- name: Record openstack service status pre-reboot
+  shell: source /home/stack/overcloudrc && openstack-status
+  register: overcloud_status_pre_reboot
+
